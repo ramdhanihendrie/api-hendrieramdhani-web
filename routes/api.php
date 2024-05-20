@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Landing\HeroController;
 use App\Http\Controllers\Landing\SectionController;
+use App\Http\Controllers\Landing\EducationController;
 
 Route::get('/user', function (Request $request) {
     return $request->user();
@@ -26,4 +27,8 @@ Route::middleware(['auth.role:admin'])->group(function () {
     Route::get('section', [SectionController::class, 'index']);
     Route::get('section/{id}', [SectionController::class, 'show']);
     Route::post('section/{id?}', [SectionController::class, 'store']);
+
+    Route::get('education', [EducationController::class, 'index']);
+    Route::get('education/{id}', [EducationController::class, 'show']);
+    Route::post('education/{id?}', [EducationController::class, 'store']);
 });
