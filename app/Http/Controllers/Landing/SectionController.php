@@ -35,5 +35,10 @@ class SectionController extends Controller
         Section::updateOrCreate([
             "id" => $id
         ], $request->all());
+
+        return response()->json([
+            "error" => false,
+            "message" => "Data saved successfully"
+        ]);
     }
 }
