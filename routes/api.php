@@ -8,6 +8,7 @@ use App\Http\Controllers\Landing\HeroController;
 use App\Http\Controllers\Landing\SectionController;
 use App\Http\Controllers\Landing\EducationController;
 use App\Http\Controllers\Landing\ProjectController;
+use App\Http\Controllers\Landing\SocialMediaController;
 use App\Http\Controllers\Landing\TechStackController;
 
 Route::get('/user', function (Request $request) {
@@ -46,4 +47,8 @@ Route::middleware(['auth.role:admin'])->group(function () {
     Route::get('techstack', [TechStackController::class, 'index']);
     Route::get('techstack/{id}', [TechStackController::class, 'show']);
     Route::post('techstack/{id?}', [TechStackController::class, 'store']);
+
+    Route::get('socialmedia', [SocialMediaController::class, 'index']);
+    Route::get('socialmedia/{id}', [SocialMediaController::class, 'show']);
+    Route::post('socialmedia/{id?}', [SocialMediaController::class, 'store']);
 });
