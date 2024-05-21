@@ -7,6 +7,7 @@ use App\Http\Controllers\Landing\CertificateController;
 use App\Http\Controllers\Landing\HeroController;
 use App\Http\Controllers\Landing\SectionController;
 use App\Http\Controllers\Landing\EducationController;
+use App\Http\Controllers\Landing\ProjectController;
 
 Route::get('/user', function (Request $request) {
     return $request->user();
@@ -36,4 +37,8 @@ Route::middleware(['auth.role:admin'])->group(function () {
     Route::get('certificate', [CertificateController::class, 'index']);
     Route::get('certificate/{id}', [CertificateController::class, 'show']);
     Route::post('certificate/{id?}', [CertificateController::class, 'store']);
+
+    Route::get('project', [ProjectController::class, 'index']);
+    Route::get('project/{id}', [ProjectController::class, 'show']);
+    Route::post('project/{id?}', [ProjectController::class, 'store']);
 });
