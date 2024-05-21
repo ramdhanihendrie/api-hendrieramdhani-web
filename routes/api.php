@@ -8,6 +8,7 @@ use App\Http\Controllers\Landing\HeroController;
 use App\Http\Controllers\Landing\SectionController;
 use App\Http\Controllers\Landing\EducationController;
 use App\Http\Controllers\Landing\ProjectController;
+use App\Http\Controllers\Landing\TechStackController;
 
 Route::get('/user', function (Request $request) {
     return $request->user();
@@ -41,4 +42,8 @@ Route::middleware(['auth.role:admin'])->group(function () {
     Route::get('project', [ProjectController::class, 'index']);
     Route::get('project/{id}', [ProjectController::class, 'show']);
     Route::post('project/{id?}', [ProjectController::class, 'store']);
+
+    Route::get('techstack', [TechStackController::class, 'index']);
+    Route::get('techstack/{id}', [TechStackController::class, 'show']);
+    Route::post('techstack/{id?}', [TechStackController::class, 'store']);
 });
