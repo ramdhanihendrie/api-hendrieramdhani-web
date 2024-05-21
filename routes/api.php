@@ -7,6 +7,7 @@ use App\Http\Controllers\Landing\CertificateController;
 use App\Http\Controllers\Landing\HeroController;
 use App\Http\Controllers\Landing\SectionController;
 use App\Http\Controllers\Landing\EducationController;
+use App\Http\Controllers\Landing\LandingController;
 use App\Http\Controllers\Landing\ProjectController;
 use App\Http\Controllers\Landing\SocialMediaController;
 use App\Http\Controllers\Landing\TechStackController;
@@ -17,6 +18,7 @@ Route::get('/user', function (Request $request) {
 
 Route::post('login', [AuthController::class, 'login']);
 Route::post('register', [AuthController::class, 'register']);
+Route::get('landing', [LandingController::class, 'index']);
 
 Route::middleware(['auth.role:admin,user'])->group(function () {
     Route::post('me', [AuthController::class, 'me']);
