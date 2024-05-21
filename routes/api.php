@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\Landing\CertificateController;
 use App\Http\Controllers\Landing\HeroController;
 use App\Http\Controllers\Landing\SectionController;
 use App\Http\Controllers\Landing\EducationController;
@@ -31,4 +32,8 @@ Route::middleware(['auth.role:admin'])->group(function () {
     Route::get('education', [EducationController::class, 'index']);
     Route::get('education/{id}', [EducationController::class, 'show']);
     Route::post('education/{id?}', [EducationController::class, 'store']);
+
+    Route::get('certificate', [CertificateController::class, 'index']);
+    Route::get('certificate/{id}', [CertificateController::class, 'show']);
+    Route::post('certificate/{id?}', [CertificateController::class, 'store']);
 });
